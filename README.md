@@ -11,7 +11,7 @@ Features
 -Login Restrictions: Only accessible during working hours unless authorized by an admin.
 -Activity Logging: Tracks login, logout, actions taken, and session durations.
 
-Departments & Ranks
+Departments & Ranks:
 IT Department
 -Admin
 -IT Engineer
