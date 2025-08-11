@@ -53,7 +53,7 @@ int main()
 void dataBase()
 {
 
-    cout << "USER DATABSE" << endl;
+    cout << "USER DATABASE" << endl;
     for (const auto &u : users)
     {
         cout << "Username" << u.username
@@ -141,7 +141,7 @@ void addUser()
     cin >> newUser.department;
     transform(newUser.department.begin(), newUser.department.end(), newUser.department.begin(), ::toupper);
     users.push_back(newUser);
-    cout << "SUCCESSFULLY ADDED " << newUser.username << " PLEASE ALWAYS REMEBER YOUR PASSWORD" << endl;
+    cout << "SUCCESSFULLY ADDED " << newUser.username << " PLEASE ALWAYS REMEMBER YOUR PASSWORD" << endl;
 }
 
 void ITadminDashboard(const user &u)
@@ -187,4 +187,5 @@ void FinanceAcctDashboard(const user &u)
 }
 void FinanceClerkDashboard(const user &u)
 {
+
 }
