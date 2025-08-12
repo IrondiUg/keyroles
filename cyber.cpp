@@ -26,7 +26,7 @@ void login();
 void addUser();
 void dataBase();
 void ITadminDashboard(const user &u);
-void ITengineeerDashboard(const user &u);
+void ITengineerDashboard(const user &u);
 void ITinternDashboard(const user &u);
 void HRmanagerDashboard(const user &u);
 void HRrecruiterDashboard(const user &u);
@@ -107,7 +107,7 @@ void login()
                 if (u.rank == "ADMIN" && u.department == "IT")
                     ITadminDashboard(u);
                 else if (u.rank == "ENGINEER" && u.department == "IT")
-                    ITengineeerDashboard(u);
+                    ITengineerDashboard(u);
                 else if (u.rank == "INTERN" && u.department == "IT")
                     ITinternDashboard(u);
                 else if (u.rank == "MANAGER" && u.department == "HR")
@@ -200,7 +200,7 @@ void addUser()
                 cout << "INVALID INPUT. PLEASE SELECT A VALID OPTION." << endl;
                 continue;
             }
-            switch (itSelect)
+            switch (itInput)
             {
             case 1:
                 pass_and_username("IT", "ADMIN");
@@ -275,7 +275,7 @@ void addUser()
             }
             try
             {
-                finInpit = stoi(finSelect);
+                finInput = stoi(finSelect);
             }
             catch (...)
             {
@@ -288,7 +288,7 @@ void addUser()
                 cout << "INVALID INPUT. PLEASE SELECT A VALID OPTION." << endl;
                 continue;
             }
-            switch (finSelect)
+            switch (finInput)
             {
             case 1:
                 pass_and_username("FINANCE", "DIRECTOR");
@@ -366,7 +366,7 @@ void ITadminDashboard(const user &u)
     cout << "2. Manage System Settings\n";
     cout << "3. Logout\n";
 }
-void ITengineeerDashboard(const user &u)
+void ITengineerDashboard(const user &u)
 {
 }
 void ITinternDashboard(const user &u)
@@ -390,7 +390,7 @@ void HRclerkDashboard(const user &u)
 
 void FinanceDirDashboard(const user &u)
 {
-    cout << "\n=== EMPLOYEE DASHBOARD ===\n";
+    cout << "\n=== DIRECTOR DASHBOARD ===\n";
     cout << "Welcome, " << u.username << " (" << u.rank << ")\n";
     cout << "1. View Tasks\n";
     cout << "2. Submit Report\n";
@@ -403,3 +403,4 @@ void FinanceClerkDashboard(const user &u)
 {
 
 }
+
