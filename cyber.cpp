@@ -195,7 +195,7 @@ void addUser()
                 continue;
             }
 
-            if (itSelect < 1 || itSelect > 3)
+            if (itInput < 1 || itInput > 3)
             {
                 cout << "INVALID INPUT. PLEASE SELECT A VALID OPTION." << endl;
                 continue;
@@ -275,7 +275,7 @@ void addUser()
             }
             try
             {
-                deptSelect = stoi(finSelect);
+                finInpit = stoi(finSelect);
             }
             catch (...)
             {
@@ -283,7 +283,7 @@ void addUser()
                 continue;
             }
 
-            if (finSelect < 1 || finSelect > 3)
+            if (finInput < 1 || finInput > 3)
             {
                 cout << "INVALID INPUT. PLEASE SELECT A VALID OPTION." << endl;
                 continue;
@@ -401,4 +401,5 @@ void FinanceAcctDashboard(const user &u)
 }
 void FinanceClerkDashboard(const user &u)
 {
+
 }
