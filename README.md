@@ -26,20 +26,18 @@ Features
 git clone https://github.com/IrondiUg/keyroles.git
 cd keyroles
 ```
-### Build
-``` Linux/macOS
+### Build for linux/macOS and windows respectively)
+```
 make
 ```
-``` Windows(using MinGW)
+```
 mingw32-make
 ```
-### Run
+### Run (for linux/macOS and windows respectively)
 ```
-**Linux/macOS**
 ./project
 ```
 ```
-**Windows**
 ./project.exe
 ```
 ---
