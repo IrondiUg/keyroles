@@ -34,11 +34,13 @@ make
 mingw32-make
 ```
 ### Run
-```Linux/macOS
+```
+**Linux/macOS**
 ./project
 ```
-```Windows
-./peoject.exe
+```
+**Windows**
+./project.exe
 ```
 ---
 
