@@ -12,22 +12,33 @@ Features
 -Activity Logging: Tracks login, logout, actions taken, and session durations.
 
 ---
+# Requirements
+
+- C++17 or later
+- GNU Make
+- OpenSSL (`libssl`, `libcrypto`)
+- MinGW (for Windows users) or GCC/Clang (Linux/macOS)
+
+# Setup & Build
+
+### Clone the repository
 ```
-Departments & Ranks:
-IT Department
--Admin
--IT Engineer
--IT Intern
-
-HR Department
--HR Manager
--HR Recruiter
--Clerk
-
-Finance Department
--Director
--Accountant
--Clerk
+git clone https://github.com/IrondiUg/keyroles.git
+cd keyroles
+```
+### Build
+``` Linux/macOS
+make
+```
+``` Windows(using MinGW)
+mingw32-make
+```
+### Run
+```Linux/macOS
+./project
+```
+```Windows
+./peoject.exe
 ```
 ---
 
