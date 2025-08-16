@@ -27,7 +27,8 @@ Finance Department
 -Accountant
 -Clerk
 ## PROJECT STRUCTURE
-'''RBAC-System/                   
+```
+RBAC-System/                   
 │
 ├── data/                        
 │   └── users.txt                 # Default login credentials for testing
