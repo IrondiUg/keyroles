@@ -26,7 +26,7 @@ Features
 git clone https://github.com/IrondiUg/keyroles.git
 cd keyroles
 ```
-### Build for linux/macOS and windows respectively)
+### Build (for linux/macOS and windows respectively)
 ```
 make
 ```
