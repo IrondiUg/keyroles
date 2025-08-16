@@ -26,3 +26,24 @@ Finance Department
 -Director
 -Accountant
 -Clerk
+# PROJECT STRUCTURE
+RBAC-System/                   
+│
+├── data/                        
+│   └── users.txt                 # Default login credentials for testing
+│
+├── include/                     
+│   ├── user.h
+│   ├── database.h
+│   ├── dashboards.h
+│   └── sha256.h
+│
+├── src/                         
+│   ├── main.cpp
+│   ├── database.cpp
+│   ├── dashboards.cpp
+│   └── sha256.cpp
+│
+├── Makefile                     # Build instructions
+├── README.md                    # Project documentation
+└── LICENSE                      
