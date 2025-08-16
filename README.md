@@ -11,6 +11,8 @@ Features
 -Login Restrictions: Only accessible during working hours unless authorized by an admin.
 -Activity Logging: Tracks login, logout, actions taken, and session durations.
 
+---
+```
 Departments & Ranks:
 IT Department
 -Admin
@@ -26,6 +28,9 @@ Finance Department
 -Director
 -Accountant
 -Clerk
+```
+---
+
 ## PROJECT STRUCTURE
 ```
 RBAC-System/                   
