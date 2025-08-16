@@ -1,0 +1,13 @@
+usernames, passwords, departments and roles in database.
+this is only for login/confirmation purposes as hashed passwords cannot be entered
+    
+
+    "John", "pass123", "ADMIN", "IT"
+    "Ugo", "ugo123", "ENGINEER", "IT"
+    "Ada", "ada123", "INTERN", "IT"
+    "Mary", "secure123", "MANAGER", "HR"
+    "Amaka", "amaka123", "RECRUITER", "HR"
+    "Chioma", "chioma123", "CLERK", "HR"
+    "Alice", "sale001", "DIRECTOR", "FINANCE"
+    "Joshua", "joshua001", "ACCOUNTANT", "FINANCE"
+    "Favour", "favour001", "CLERK", "FINANCE"
