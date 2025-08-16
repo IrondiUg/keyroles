@@ -1,86 +1,25 @@
-#include <iostream>
-#include <string>
-#include <vector>
+#include "database.h"
+#include "dashboards.h"
+#include "sha256.h"
 #include <limits>
 #include <algorithm>
+#include <iostream>
 using namespace std;
-struct user
-{
-    string username;
-    string password;
-    string rank;
-    string department;
-};
+
 vector<user> users{
-    {"John", "pass123", "ADMIN", "IT"},
-    {"Ugo", "ugo123", "ENGINEER", "IT"},
-    {"Ada", "ada123", "INTERN", "IT"},
-    {"Mary", "secure123", "MANAGER", "HR"},
-    {"Amaka", "amaka123", "RECRUITER", "HR"},
-    {"Chioma", "chioma123", "CLERK", "HR"},
-    {"Alice", "sale001", "DIRECTOR", "FINANCE"},
-    {"Joshua", "joshua001", "ACCOUNTANT", "FINANCE"},
-    {"Favour", "favour001", "CLERK", "FINANCE"},
+    {"John", "9b8769a4a742959a2d0298c36fb70623f2dfacda8436237df08d8dfd5b37374c", "ADMIN", "IT"},
+    {"Ugo", "e31967baa9b0d85f78e8c5e7e4b462e4d288f32717fa29f40812454b3302d8a4", "ENGINEER", "IT"},
+    {"Ada", "003256b33c9147bf54d8a27969ed9d23afdfd1788ee23ca8e5c7f728737dd81c", "INTERN", "IT"},
+    {"Mary", "b5692500175fad6bb2b306aa20ff58423c79b130ef310fb3caa924e0f28bc61d", "MANAGER", "HR"},
+    {"Amaka", "23451295638d10360ab15da4ccbffb5cbd5f5875e8402ffced8bc343344581c5", "RECRUITER", "HR"},
+    {"Chioma", "2fd69b6b1427d290a8c41d9a4cc224cdf37a1d831ffeefaa7421ea7129ef662f", "CLERK", "HR"},
+    {"Alice", "a78d06f1caed28609f707393e4b1dac1ba2caa8177d8683fe195294f8e17f34b", "DIRECTOR", "FINANCE"},
+    {"Joshua", "37e5c685fa7c5720ac9faca399a3a24e993954a8be2c40771128c0ab376833e5", "ACCOUNTANT", "FINANCE"},
+    {"Favour", "d6351f23cd88fe7d6a6d803e07b45f66e63c8113b0725ac03c0f6e081096f4a3", "CLERK", "FINANCE"},
 };
-void login();
-void addUser();
-void dataBase();
-void ITadminDashboard(const user &u);
-void ITengineerDashboard(const user &u);
-void ITinternDashboard(const user &u);
-void HRmanagerDashboard(const user &u);
-void HRrecruiterDashboard(const user &u);
-void HRclerkDashboard(const user &u);
-void FinanceAcctDashboard(const user &u);
-void FinanceDirDashboard(const user &u);
-void FinanceClerkDashboard(const user &u);
-void pass_and_username(const string &department, const string &rank);
 
-int main()
-{
-    int select;
-    string input;
-    do
-    {
-        cout << "1. LOGIN" << endl;
-        cout << "2. SIGN UP" << endl;
-        cout << "3. EXIT" << endl;
-        getline(cin >> ws, input);
-        if (input.empty() || all_of(input.begin(), input.end(), ::isspace))
-        {
-            cout << "Input cannot be empty or blank. Please enter a number.\n";
-            continue;
-        }
-        try
-        {
-            select = stoi(input);
-        }
-        catch (...)
-        {
-            cout << "Invalid input. Please enter a number.\n";
-            continue;
-        }
-        switch (select)
-        {
-        case 1:
-            login();
-            break;
-        case 2:
-            addUser();
-            break;
-        case 3:
-            cout << "EXITING" << endl;
-            return 0;
-        default:
-            cout << "INVALID INPUT" << endl;
-        }
-
-    } while (select != 3);
-    return 0;
-}
 void dataBase()
 {
-
     cout << "USER DATABASE" << endl;
     for (const auto &u : users)
     {
@@ -89,6 +28,7 @@ void dataBase()
              << "| Dept: " << u.department << endl;
     }
 }
+
 void login()
 {
     string uname, pwd;
@@ -96,12 +36,12 @@ void login()
     do
     {
         cout << "ENTER USERNAME:(Case sensitive)_";
-        cin >> uname;
+        getline(cin >> ws, uname);
         cout << "ENTER PASSWORD:(Case sensitive)_";
-        cin >> pwd;
+        getline(cin >> ws, pwd);
         for (const auto &u : users)
         {
-            if (u.username == uname && u.password == pwd)
+            if (u.username == uname && u.password == sha256(pwd))
             {
                 cout << "\nLOGIN SUCCESSFUL, WELCOME [" << u.username << "]" << endl;
                 if (u.rank == "ADMIN" && u.department == "IT")
@@ -172,6 +112,7 @@ void addUser()
         switch (deptSelect)
         {
         case 1:
+        {
             cout << "PLEASE ENTER RANK UNDER IT DEPARTMENT" << endl;
             cout << "1. ADMIN" << endl;
             cout << "2. ENGINEER" << endl;
@@ -214,8 +155,10 @@ void addUser()
             default:
                 cout << "INVALID INPUT" << endl;
             }
-            break;
+        }
+        break;
         case 2:
+        {
             cout << "PLEASE ENTER RANK UNDER HR DEPARTMENT" << endl;
             cout << "1. MANAGER" << endl;
             cout << "2. RECRUITER" << endl;
@@ -258,8 +201,10 @@ void addUser()
             default:
                 cout << "INVALID INPUT" << endl;
             }
-            break;
+        }
+        break;
         case 3:
+        {
             cout << "PLEASE ENTER RANK UNDER FINANCE DEPARTMENT" << endl;
             cout << "1. DIRECTOR" << endl;
             cout << "2. ACCOUNTANT" << endl;
@@ -302,7 +247,8 @@ void addUser()
             default:
                 cout << "INVALID INPUT" << endl;
             }
-            break;
+        }
+        break;
         case 4:
             return; // Go back to the previous menu
         default:
@@ -342,6 +288,7 @@ void pass_and_username(const string &department, const string &rank)
     {
         cout << "ENTER NEW PASSWORD:_" << endl;
         getline(cin >> ws, newUser.password);
+        newUser.password = sha256(newUser.password);
         if (newUser.password.empty() || all_of(newUser.password.begin(), newUser.password.end(), ::isspace))
         {
             cout << "PASSWORD CANNOT BE EMPTY. PLEASE TRY AGAIN." << endl;
@@ -357,50 +304,3 @@ void pass_and_username(const string &department, const string &rank)
     users.push_back(newUser);
     cout << "SUCCESSFULLY ADDED " << newUser.username << " PLEASE ALWAYS REMEMBER YOUR PASSWORD" << endl;
 }
-
-void ITadminDashboard(const user &u)
-{
-    cout << "\n=== ADMIN DASHBOARD ===\n";
-    cout << "Welcome, " << u.username << " (" << u.rank << ")\n";
-    cout << "1. View All Users\n";
-    cout << "2. Manage System Settings\n";
-    cout << "3. Logout\n";
-}
-void ITengineerDashboard(const user &u)
-{
-}
-void ITinternDashboard(const user &u)
-{
-}
-
-void HRmanagerDashboard(const user &u)
-{
-    cout << "\n=== MANAGER DASHBOARD ===\n";
-    cout << "Welcome, " << u.username << " (" << u.rank << ")\n";
-    cout << "1. View Sales Reports\n";
-    cout << "2. Approve Requests\n";
-    cout << "3. Logout\n";
-}
-void HRrecruiterDashboard(const user &u)
-{
-}
-void HRclerkDashboard(const user &u)
-{
-}
-
-void FinanceDirDashboard(const user &u)
-{
-    cout << "\n=== DIRECTOR DASHBOARD ===\n";
-    cout << "Welcome, " << u.username << " (" << u.rank << ")\n";
-    cout << "1. View Tasks\n";
-    cout << "2. Submit Report\n";
-    cout << "3. Logout\n";
-}
-void FinanceAcctDashboard(const user &u)
-{
-}
-void FinanceClerkDashboard(const user &u)
-{
-
-}
-
