@@ -40,11 +40,9 @@ mingw32-make
 ```
 ### Run (for linux/macOS and windows respectively)
 ```
-#for linux
 ./project
 ```
 ```
-#for windows
 ./project.exe
 ```
 ---
@@ -72,5 +70,6 @@ RBAC-System/
 ├── README.md                    # Project documentation
 └── LICENSE                      
 =======
+
 
 
