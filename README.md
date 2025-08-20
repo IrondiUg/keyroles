@@ -57,12 +57,14 @@ RBAC-System/
 ├── include/                     
 │   ├── user.h
 │   ├── database.h
+|   ├── logger.h
 │   ├── dashboards.h
 │   └── sha256.h
 │
 ├── src/                         
 │   ├── main.cpp
 │   ├── database.cpp
+|   ├── logger.cpp
 │   ├── dashboards.cpp
 │   └── sha256.cpp
 │
@@ -70,6 +72,7 @@ RBAC-System/
 ├── README.md                    # Project documentation
 └── LICENSE                      
 =======
+
 
 
 
