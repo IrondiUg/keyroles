@@ -7,7 +7,7 @@ LDFLAGS = -lssl -lcrypto
 TARGET = project
 
 # Source and object files
-SRCS = main.cpp database.cpp dashboards.cpp sha256.cpp
+SRCS = main.cpp database.cpp dashboards.cpp sha256.cpp logger.cpp
 OBJS = $(SRCS:.cpp=.o)
 
 # Build target

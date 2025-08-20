@@ -1,4 +1,3 @@
-
 # KeyRoles – C++ Role-Based Access Control System
 
 **KeyRoles** is a robust C++ **Role-Based Access Control (RBAC) system** designed for organizations with multiple departments and ranks. It ensures **secure, structured, and auditable access** for all users.  
@@ -57,12 +56,14 @@ RBAC-System/
 ├── include/                     
 │   ├── user.h
 │   ├── database.h
+|   ├── logger.h
 │   ├── dashboards.h
 │   └── sha256.h
 │
 ├── src/                         
 │   ├── main.cpp
 │   ├── database.cpp
+|   ├── logger.cpp
 │   ├── dashboards.cpp
 │   └── sha256.cpp
 │
