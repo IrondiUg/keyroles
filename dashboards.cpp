@@ -1,4 +1,5 @@
 #include "dashboards.h"
+#include "logger.h"
 #include <iostream>
 using namespace std;
 
@@ -9,6 +10,7 @@ void ITadminDashboard(const user &u)
     cout << "1. View All Users\n";
     cout << "2. Manage System Settings\n";
     cout << "3. Logout\n\n";
+    Logger::showLogs(); // this is just to print logs, it shouldn't be here, but just for testing
 }
 
 void ITengineerDashboard(const user &u) {}

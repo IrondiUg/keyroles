@@ -1,5 +1,6 @@
 #include "database.h"
 #include "dashboards.h"
+#include "logger.h"
 #include "sha256.h"
 #include <limits>
 #include <algorithm>
@@ -27,6 +28,7 @@ void dataBase()
              << "| Role: " << u.rank
              << "| Dept: " << u.department << endl;
     }
+    Logger::logAction("Viewed Database");
 }
 
 void login()
@@ -43,6 +45,7 @@ void login()
         {
             if (u.username == uname && u.password == sha256(pwd))
             {
+                Logger::setUser(u.username, u.rank);
                 cout << "\nLOGIN SUCCESSFUL, WELCOME [" << u.username << "]" << endl;
                 if (u.rank == "ADMIN" && u.department == "IT")
                     ITadminDashboard(u);
@@ -303,4 +306,5 @@ void pass_and_username(const string &department, const string &rank)
 
     users.push_back(newUser);
     cout << "SUCCESSFULLY ADDED " << newUser.username << " PLEASE ALWAYS REMEMBER YOUR PASSWORD" << endl;
+    Logger::logAction("Added new user: " + newUser.username);
 }
